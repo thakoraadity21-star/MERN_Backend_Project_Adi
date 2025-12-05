@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "6fa0a9a3-2b1d-4326-bd70-1b274f7a4a41",
+		"name": "My_Backend_Project_Adi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50503477",
+		"_collection_link": "https://thakoraadity21-977697.postman.co/workspace/Aditya-Thakor's-Workspace~e1c856fe-c643-45ea-8bc8-29c3a87a6e58/collection/50503477-6fa0a9a3-2b1d-4326-bd70-1b274f7a4a41?action=share&source=collection_link&creator=50503477"
+	},
+	"item": [
+		{
+			"name": "[POST] User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Adi Thakor\",\r\n    \"email\": \"adi.thakor@test.com\", \r\n    \"password\": \"adi.thakor123\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Adi\",\r\n    \"email\": \"adi@test.com\",\r\n    \"password\": \"adi12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"adi@test.com\",\r\n    \"password\": \"adi12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmZmNTAzOGNhMTZjMDIyODNiMmNhMSIsImlhdCI6MTc2NDc1MDY5MSwiZXhwIjoxNzY0NzU0MjkxfQ.0aX9yeyeNZNpJiSh2sb3QnLMBGyEjQm5XqfwlGi2vg8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/users/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/resources",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmZmNTAzOGNhMTZjMDIyODNiMmNhMSIsImlhdCI6MTc2NDg0NjQ4MSwiZXhwIjoxNzY0ODUwMDgxfQ.IJSWnsfitT67xbeE1YwtkONZz_cMiggZ9PXPhY3vL08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Grocery Shopping\",\r\n    \"description\": \"Weekly grocery run at the supermarket.\",\r\n    \"category\": \"Expense\",\r\n    \"status\": \"Pending\",\r\n    \"amount\": 3500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/resources",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/resources",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmZmNTAzOGNhMTZjMDIyODNiMmNhMSIsImlhdCI6MTc2NDg0NjQ4MSwiZXhwIjoxNzY0ODUwMDgxfQ.IJSWnsfitT67xbeE1YwtkONZz_cMiggZ9PXPhY3vL08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/resources",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/resources/69316d8ecb5a12095cf25a8a",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmZmNTAzOGNhMTZjMDIyODNiMmNhMSIsImlhdCI6MTc2NDg0NjQ4MSwiZXhwIjoxNzY0ODUwMDgxfQ.IJSWnsfitT67xbeE1YwtkONZz_cMiggZ9PXPhY3vL08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Completed\", \r\n    \"amount\": 3450 \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/resources/69316d8ecb5a12095cf25a8a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"resources",
+						"69316d8ecb5a12095cf25a8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/resources/69316d8ecb5a12095cf25a8a",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmZmNTAzOGNhMTZjMDIyODNiMmNhMSIsImlhdCI6MTc2NDg0NjQ4MSwiZXhwIjoxNzY0ODUwMDgxfQ.IJSWnsfitT67xbeE1YwtkONZz_cMiggZ9PXPhY3vL08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/resources/69316d8ecb5a12095cf25a8a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"resources",
+						"69316d8ecb5a12095cf25a8a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
