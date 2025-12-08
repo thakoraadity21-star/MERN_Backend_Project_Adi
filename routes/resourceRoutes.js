@@ -7,9 +7,9 @@ const {
     updateResource,
     deleteResource,
     getResource,
-} = require('../controllers/resourceController');
+} = require('../Controllers/ResourceController');
 
-const { protect } = require('../middleware/authMiddleware');
+const { protect } = require('../middleware/AuthMiddleware');
 
 //base rout for post man 
 
