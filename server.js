@@ -50,8 +50,12 @@ mongoose
 // for routes import
 // for resource check in post man 
 
+// for resource check in post man 
+
+// ADDED A NEW COMMENT TO FORCE RENDER SYNC
+// for resource check in post man 
 const userRoutes = require("./routes/userRoutes");
-const resourceRoutes = require("./routes/resourceRoutes"); 
+const resourceRoutes = require("./routes/resourceRoutes");
 
 //end point......
 //user last source......
