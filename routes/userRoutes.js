@@ -4,8 +4,9 @@ const router = express.Router();
 //steps 
 const User = require("../models/userModel"); 
 const bcrypt = require('bcryptjs'); 
-const jwt = require('jsonwebtoken'); 
-const { protect } = require('../middleware/AuthMiddleware'); 
+const jwt = require('jsonwebtoken');
+
+const { protect } = require('../Middleware/AuthMiddleware');
 
 //user method 
 //register method to guide in post man 

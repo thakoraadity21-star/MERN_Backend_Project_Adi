@@ -9,7 +9,7 @@ const {
     getResource,
 } = require('../Controllers/ResourceController');
 
-const { protect } = require('../middleware/AuthMiddleware');
+const { protect } = require('../Middleware/AuthMiddleware');
 
 //base rout for post man 
 
