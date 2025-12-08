@@ -8,11 +8,11 @@ require("dotenv").config();
 
 const { errorHandler } = require('./middleware/errorMiddleware'); 
 
-// 🚨 [नया कोड शुरू] - यहाँ CORS Configuration जोड़ें
-// 1. Live Frontend URL को यहाँ जोड़ना है
+
+// 1.live fornted
 const allowedOrigins = [
-    'http://localhost:3000', // Local development के लिए
-    'YOUR_LIVE_FRONTEND_URL_HERE' // 👈👈 बाद में इसे बदलें (जैसे: 'https://adi-task-manager.netlify.app')
+    'http://localhost:3000', 
+    'YOUR_LIVE_FRONTEND_URL_HERE'
 ]; 
 
 const corsOptions = {
@@ -26,14 +26,14 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 };
-// 🚨 [नया कोड खत्म]
+//
 
 const app = express();
 
 //app user stpes to ues in postman 
 //now show real.....req
 
-// 👇👇👇 यह पुरानी app.use(cors()) लाइन को बदलता है
+//
 app.use(cors(corsOptions)); 
 app.use(express.json()); 
 
@@ -57,14 +57,14 @@ const resourceRoutes = require("./routes/resourceRoutes");
 //user last source......
 
 app.use("/api/users", userRoutes); 
-app.use("/api/resources", resourceRoutes); // This is the correct endpoint for the Day 4 Resource API
+app.use("/api/resources", resourceRoutes); 
 
 //for error handler check save port.....
 app.use(errorHandler);
 
 
 const port = process.env.PORT || 5000; 
-// 🌟 यह अपनी सही जगह पर है, 'app.use(errorHandler);' के बाद और 'app.listen()' से पहले।
+//start the main point 
 
 // Start the server 
 app.listen(port, () => {
