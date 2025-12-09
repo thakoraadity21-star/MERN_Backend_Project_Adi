@@ -7,7 +7,7 @@ const {
     updateResource,
     deleteResource,
     getResource,
-} = require('../controllers/ResourceController'); // <--- यहाँ C छोटा किया गया है
+} = require('../Controllers/resourceController'); // <--- यहाँ C छोटा किया गया है
 
 const { protect } = require('../middleware/AuthMiddleware');
 
