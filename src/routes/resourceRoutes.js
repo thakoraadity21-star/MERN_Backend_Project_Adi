@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-//simple resources str....
+
 const { 
     getResources,
     createResource,
     updateResource,
     deleteResource,
     getResource,
-} = require('../Controllers/ResourceController');
+} = require('../controllers/ResourceController'); // <--- यहाँ C छोटा किया गया है
 
-const { protect } = require('../Middleware/AuthMiddleware');
+const { protect } = require('../middleware/AuthMiddleware');
 
 //base rout for post man 
 
