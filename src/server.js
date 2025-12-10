@@ -12,7 +12,7 @@ const { errorHandler } = require('./middleware/errorMiddleware');
 // 1.live fornted
 const allowedOrigins = [
     'http://localhost:3000', 
-    'YOUR_LIVE_FRONTEND_URL_HERE'
+    'https://mern-backend-project-adi.onrender.com'
 ]; 
 
 const corsOptions = {
