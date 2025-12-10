@@ -1,6 +1,6 @@
 import express from 'express';
 import { protect } from '../middleware/authMiddleware.js';
-import Resource from '../models/Resource.js'; // मान लें कि आपने यह मॉडल बनाया है
+//
 
 const router = express.Router();
 
