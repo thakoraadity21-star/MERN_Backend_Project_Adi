@@ -1,0 +1,131 @@
+/* === NEON ANIME DASHBOARD CSS === */
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg-dark:#02030a;
+  --panel:#071428;
+  --accent:#2fb8ff;
+  --neon:#8a5cff;
+  --muted:rgba(255,255,255,0.65);
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body,#root{height:100%; margin:0; font-family:'Poppins',sans-serif}
+body{
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(42,12,85,0.16), transparent 8%),
+              radial-gradient(1000px 500px at 90% 80%, rgba(10,75,110,0.12), transparent 10%),
+              linear-gradient(180deg, #020617, #020927);
+  color:#e8f9ff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom:40px;
+}
+
+/* NAVBAR */
+.neo-nav{
+  position:sticky; top:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 28px; gap:16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+}
+.neo-brand{ display:flex; flex-direction:column; }
+.brand-holo{
+  font-weight:800; letter-spacing:1px; font-size:18px;
+  background:linear-gradient(90deg,var(--neon),var(--accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow: 0 6px 24px rgba(138,92,255,0.06);
+}
+.brand-sub{ font-size:11px; color:var(--muted); margin-top:3px }
+
+/* nav actions */
+.neo-nav-actions{ display:flex; gap:10px; align-items:center }
+.neo-btn{
+  padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.03);
+  background:transparent; color:#bfeeff; cursor:pointer; font-weight:700; transition:all .16s;
+}
+.neo-btn:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(47,184,255,0.06) }
+.neo-btn.active{ background:linear-gradient(90deg,var(--neon),var(--accent)); color:#071428 }
+
+/* LAYOUT */
+.neo-layout{ display:flex; gap:18px; padding:28px; align-items:flex-start; max-width:1300px; margin:0 auto; }
+.neo-side{
+  width:220px; padding:16px; border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  backdrop-filter:blur(6px);
+  min-height:60vh;
+}
+
+/* sidebar */
+.side-top h4{ margin:0; color:#dff6ff }
+.side-note{ font-size:12px; color:var(--muted); margin-top:6px }
+.side-list{ margin-top:12px; display:flex; flex-direction:column; gap:8px }
+.side-item{ text-align:left; padding:10px; border-radius:8px; border:none; background:transparent; color:#dff6ff; cursor:pointer; font-weight:700 }
+.side-item:hover{ background: rgba(47,184,255,0.04); transform:translateX(6px) }
+.side-footer{ margin-top:14px; font-size:12px; color:var(--muted) }
+
+/* main */
+.neo-main{ flex:1; min-height:56vh }
+
+/* section box */
+.neo-section{ margin-bottom:18px }
+.holo-heading{
+  font-size:36px; margin:0 0 8px 0;
+  background:linear-gradient(90deg,var(--neon),var(--accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow: 0 8px 36px rgba(47,184,255,0.05);
+}
+.muted{ color:var(--muted) }
+
+/* keywords */
+.home-keywords{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px }
+.kw{ padding:6px 10px; border-radius:999px; background: rgba(255,255,255,0.03); color:#dff6ff; font-weight:700 }
+
+/* home cards */
+.home-cards{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap }
+.home-card{ padding:12px 14px; border-radius:10px; background: linear-gradient(180deg, rgba(47,184,255,0.04), rgba(138,92,255,0.03)); color:#dff6ff; font-weight:700 }
+
+/* project form */
+.neo-form{ display:flex; flex-direction:column; gap:12px; width:680px; max-width:100%; padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.02) }
+.neo-input{ padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:#e8f9ff; outline:none }
+.neo-submit{ padding:12px 16px; border-radius:10px; border:none; background:linear-gradient(90deg,var(--accent),var(--neon)); color:#071428; font-weight:800; cursor:pointer }
+.neo-submit:hover{ transform:translateY(-4px); box-shadow:0 16px 40px rgba(47,184,255,0.08) }
+
+/* success */
+.success{ display:inline-block; background: rgba(40,220,130,0.08); color:#bfffbf; padding:8px 10px; border-radius:8px; margin-bottom:12px }
+
+/* list area & cards grid */
+.cards-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin-top:16px }
+.item-card{
+  padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008)); border:1px solid rgba(255,255,255,0.02);
+  transition: transform .18s, box-shadow .18s; position:relative;
+}
+.item-card:hover{ transform:translateY(-8px); box-shadow:0 28px 60px rgba(0,0,0,0.5) }
+.card-top{ display:flex; justify-content:space-between; align-items:center; gap:8px }
+.card-top h3{ margin:0; color:#dff6ff; font-size:18px }
+.controls .icon{ background:transparent; border:none; color:#fff; cursor:pointer; font-size:18px; margin-left:8px }
+.controls .done{ color:#7ff28a }
+
+/* meta */
+.tag{ padding:6px 10px; border-radius:999px; background: rgba(47,184,255,0.06); color:#dff6ff; font-weight:800 }
+.desc{ margin-top:10px; color:rgba(255,255,255,0.9) }
+
+/* actions */
+.card-actions{ margin-top:12px }
+.delete{ padding:8px 12px; border-radius:8px; border:none; background:linear-gradient(90deg,#ff6b6b,#ff4d4d); color:#fff; cursor:pointer }
+.neo-clear{ margin-top:18px; padding:12px 16px; border-radius:10px; border:none; background:linear-gradient(90deg,#ff006e,#ff4d4d); color:#fff }
+
+/* footer */
+.neo-footer{ text-align:center; padding:18px; color:rgba(255,255,255,0.7); margin-top:24px }
+
+/* small screens */
+@media(max-width:980px){
+  .neo-layout{ flex-direction:column; padding:18px; gap:12px }
+  .neo-side{ width:100%; display:flex; gap:10px; overflow:auto }
+  .cards-grid{ grid-template-columns: repeat(auto-fill,minmax(200px,1fr)) }
+  .neo-form{ width:100% }
+}
