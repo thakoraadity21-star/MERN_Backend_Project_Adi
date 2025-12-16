@@ -1,22 +1,19 @@
+// backend/src/routes/demoRoutes.js
 import express from "express";
 
 const router = express.Router();
 
-// GET test route (Day 1 style)
 router.get("/", (req, res) => {
-  res.json({
-    message: "Demo API working (GET)"
-  });
+  res.json({ message: "Demo GET API working" });
 });
 
-// POST route (Day 2 task)
 router.post("/add", (req, res) => {
-  const data = req.body;
+  console.log("POST BODY:", req.body);
 
   res.status(201).json({
     success: true,
-    message: "Demo data received successfully",
-    data
+    message: "Demo POST API working",
+    data: req.body,
   });
 });
 

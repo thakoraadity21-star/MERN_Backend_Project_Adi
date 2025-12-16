@@ -60,7 +60,8 @@ async function startServer() {
 
   app.use('/api/users', userRoutes);
   app.use('/api/resources', resourceRoutes);
-  app.use('/api/demo', demoRoutes);
+  app.use("/api/demo", demoRoutes);
+
 
   app.get('/', (req, res) => {
     res.send('MERN Backend Project Adi is running!');
