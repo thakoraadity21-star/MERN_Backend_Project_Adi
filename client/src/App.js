@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Home from "./components/Home";
@@ -7,10 +7,20 @@ import Project from "./components/Project";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [section, setSection] = useState("home"); // home | about | project
-  const [items, setItems] = useState([]); // central state
+  const [section, setSection] = useState("home");
+  const [items, setItems] = useState([]);
 
-  // Add / Delete / Clear (passed as props)
+  // ✅ NEW: backend message state
+  const [backendMessage, setBackendMessage] = useState("");
+
+  // ✅ NEW: fetch backend API
+  useEffect(() => {
+    fetch("https://mern-backend-project-adi.onrender.com/")
+      .then((res) => res.text())
+      .then((data) => setBackendMessage(data))
+      .catch((err) => console.error("Backend error:", err));
+  }, []);
+
   const addItem = (item) => setItems((p) => [item, ...p]);
   const deleteItem = (id) => setItems((p) => p.filter((it) => it.id !== id));
   const clearAll = () => setItems([]);
@@ -21,7 +31,9 @@ export default function App() {
       <div className="neo-layout">
         <Sidebar setSection={setSection} />
         <main className="neo-main">
-          {section === "home" && <Home />}
+          {section === "home" && (
+            <Home backendMessage={backendMessage} />
+          )}
           {section === "about" && <About />}
           {section === "project" && (
             <Project
