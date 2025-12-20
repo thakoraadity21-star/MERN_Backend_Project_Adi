@@ -1,46 +1,111 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-export default function Home({ backendMessage }) {
+const API = "/api/movies";
+
+export default function Home() {
+  const [movies, setMovies] = useState([]);
+  const [form, setForm] = useState({
+    title: "",
+    type: "movie",
+    genre: "",
+    rating: "",
+  });
+  const [editId, setEditId] = useState(null);
+  const [msg, setMsg] = useState("");
+
+  // GET
+  const fetchMovies = async () => {
+    const res = await fetch(API);
+    const data = await res.json();
+    setMovies(data.data);
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  // ADD / UPDATE
+  const submitHandler = async () => {
+    if (!form.title) {
+      setMsg("❌ Title required");
+      return;
+    }
+
+    const method = editId ? "PUT" : "POST";
+    const url = editId ? `${API}/${editId}` : API;
+
+    await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    setForm({ title: "", type: "movie", genre: "", rating: "" });
+    setEditId(null);
+    setMsg("✅ Saved successfully");
+    fetchMovies();
+  };
+
+  // DELETE
+  const deleteMovie = async (id) => {
+    if (!window.confirm("Delete this item?")) return;
+
+    await fetch(`${API}/${id}`, { method: "DELETE" });
+    setMsg("🗑️ Deleted");
+    fetchMovies();
+  };
+
+  // EDIT
+  const editMovie = (movie) => {
+    setForm(movie);
+    setEditId(movie.id);
+  };
+
   return (
-    <section className="neo-section">
-      <div className="home-hero">
-        <h1 className="holo-heading">Welcome to the movie or anime</h1>
+    <div style={{ padding: 20 }}>
+      <h2>🎬 Movie & Anime Catalog</h2>
 
-        <p className="muted">
-          A futuristic anime + movie dashboard — add, manage, and like your favorites.
-        </p>
+      <input
+        placeholder="Title"
+        value={form.title}
+        onChange={(e) => setForm({ ...form, title: e.target.value })}
+      />
 
-        {/* ✅ Backend message (Day-1 proof) */}
-        {backendMessage && (
-          <div
-            style={{
-              marginTop: "12px",
-              padding: "8px 14px",
-              borderRadius: "10px",
-              background: "rgba(59,130,246,0.15)",
-              color: "#93c5fd",
-              fontSize: "14px",
-              display: "inline-block"
-            }}
-          >
-            🔗 Backend says: {backendMessage}
-          </div>
-        )}
+      <select
+        value={form.type}
+        onChange={(e) => setForm({ ...form, type: e.target.value })}
+      >
+        <option value="movie">Movie</option>
+        <option value="anime">Anime</option>
+      </select>
 
-        <div className="home-keywords">
-          <span className="kw light">Anime</span>
-          <span className="kw light">Movie</span>
-          <span className="kw light">Watchlist</span>
-          <span className="kw light">Favorites</span>
-          <span className="kw light">Reviews</span>
+      <input
+        placeholder="Genre"
+        value={form.genre}
+        onChange={(e) => setForm({ ...form, genre: e.target.value })}
+      />
+
+      <input
+        placeholder="Rating"
+        value={form.rating}
+        onChange={(e) => setForm({ ...form, rating: e.target.value })}
+      />
+
+      <button onClick={submitHandler}>
+        {editId ? "Update" : "Add"}
+      </button>
+
+      <p>{msg}</p>
+
+      <hr />
+
+      {movies.map((m) => (
+        <div key={m.id}>
+          <strong>{m.title}</strong> ({m.type}) ⭐ {m.rating}
+          <button onClick={() => editMovie(m)}>Edit</button>
+          <button onClick={() => deleteMovie(m.id)}>Delete</button>
         </div>
-
-        <div className="home-cards">
-          <div className="home-card">Fast Add</div>
-          <div className="home-card">Organize</div>
-          <div className="home-card">Connect Next Week</div>
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }

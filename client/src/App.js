@@ -1,51 +1,110 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Project from "./components/Project";
-import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 
-export default function App() {
-  const [section, setSection] = useState("home");
-  const [items, setItems] = useState([]);
+const API = "http://localhost:10000/api/demo";
 
-  // ✅ NEW: backend message state
-  const [backendMessage, setBackendMessage] = useState("");
+function App() {
+  const [text, setText] = useState("");
+  const [data, setData] = useState([]);
+  const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [editId, setEditId] = useState(null);
 
-  // ✅ NEW: fetch backend API
+  // GET
+  const fetchData = async () => {
+    const res = await fetch(API);
+    const json = await res.json();
+    setData(json.data);
+  };
+
   useEffect(() => {
-    fetch("https://mern-backend-project-adi.onrender.com/")
-      .then((res) => res.text())
-      .then((data) => setBackendMessage(data))
-      .catch((err) => console.error("Backend error:", err));
+    fetchData();
   }, []);
 
-  const addItem = (item) => setItems((p) => [item, ...p]);
-  const deleteItem = (id) => setItems((p) => p.filter((it) => it.id !== id));
-  const clearAll = () => setItems([]);
+  // ADD / UPDATE
+  const handleSubmit = async () => {
+    if (!text.trim()) {
+      setMsg("❌ Text required");
+      return;
+    }
+
+    setLoading(true);
+
+    const url = editId
+      ? `${API}/update/${editId}`
+      : `${API}/add`;
+
+    const method = editId ? "PUT" : "POST";
+
+    const res = await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ test: text }),
+    });
+
+    const json = await res.json();
+
+    if (json.success) {
+      setData(json.data);
+      setMsg(editId ? "✅ Data updated" : "✅ Data added");
+      setText("");
+      setEditId(null);
+    } else {
+      setMsg("❌ " + json.message);
+    }
+
+    setLoading(false);
+  };
+
+  // DELETE
+  const handleDelete = async (id) => {
+    if (!window.confirm("Delete this item?")) return;
+
+    const res = await fetch(`${API}/delete/${id}`, {
+      method: "DELETE",
+    });
+
+    const json = await res.json();
+
+    if (json.success) {
+      setData(json.data);
+      setMsg("🗑️ Data deleted");
+    }
+  };
 
   return (
-    <div className="neo-root">
-      <Navbar section={section} setSection={setSection} />
-      <div className="neo-layout">
-        <Sidebar setSection={setSection} />
-        <main className="neo-main">
-          {section === "home" && (
-            <Home backendMessage={backendMessage} />
-          )}
-          {section === "about" && <About />}
-          {section === "project" && (
-            <Project
-              items={items}
-              addItem={addItem}
-              deleteItem={deleteItem}
-              clearAll={clearAll}
-            />
-          )}
-        </main>
-      </div>
-      <Footer />
+    <div style={{ padding: 30 }}>
+      <h2>Day 5 – Full CRUD Demo</h2>
+
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter text"
+      />
+      <button onClick={handleSubmit} disabled={loading}>
+        {editId ? "Update" : "Submit"}
+      </button>
+
+      <p>{msg}</p>
+
+      <h3>Fetched Data</h3>
+      <ul>
+        {data.map((item) => (
+          <li key={item.id}>
+            {item.test}{" "}
+            <button onClick={() => {
+              setText(item.test);
+              setEditId(item.id);
+            }}>
+              Edit
+            </button>
+            <button onClick={() => handleDelete(item.id)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
+export default App;
