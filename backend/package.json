@@ -2,11 +2,11 @@
   "name": "mern-backend-project-adi",
   "version": "1.0.0",
   "description": "MERN Stack Backend for User Auth and Secure Resources",
-  "main": "server.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
