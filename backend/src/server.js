@@ -8,7 +8,6 @@ import { fileURLToPath } from "url";
 import demoRoutes from "./routes/demoRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import resourceRoutes from "./routes/resourceRoutes.js";
-import movieRoutes from "./routes/movieRoutes.js";
 
 dotenv.config();
 
@@ -42,7 +41,6 @@ app.use(
 app.use(express.json());
 
 /* ================= API ROUTES ================= */
-app.use("/api/movies", movieRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/resources", resourceRoutes);
 app.use("/api/demo", demoRoutes);
