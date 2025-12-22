@@ -1,0 +1,16 @@
+.home {
+  margin-left: 240px;
+  margin-right: 260px;
+  padding: 25px;
+  color: white;
+}
+.watchBtn {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: fit-content;   /* 🔥 IMPORTANT */
+}

@@ -1,0 +1,25 @@
+.card {
+  width: 170px;
+  background: #020617;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  transform: scale(1.12);
+  z-index: 10;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}

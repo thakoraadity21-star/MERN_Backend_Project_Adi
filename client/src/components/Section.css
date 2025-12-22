@@ -1,0 +1,20 @@
+.section {
+  margin: 30px 0;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}

@@ -1,21 +1,26 @@
-import React from "react";
+import "./Sidebar.css";
 
-export default function Sidebar({ setSection }) {
+export default function Sidebar() {
   return (
-    <aside className="neo-side">
-      <div className="side-top">
-        <h4>Menu</h4>
-        <p className="side-note">Neon quick links</p>
+    <aside className="sidebar">
+      <h2 className="logo">HASHANIME</h2>
+
+      <div className="menu">
+        <p className="active">🏠 Home</p>
+        <p>👥 Community</p>
+        <p>🎉 Events</p>
       </div>
 
-      <div className="side-list">
-        <button className="side-item" onClick={() => setSection("home")}>🏠 Home</button>
-        <button className="side-item" onClick={() => setSection("project")}>🎬 Project</button>
-        <button className="side-item" onClick={() => setSection("about")}>ℹ About</button>
+      <h4>Categories</h4>
+      <div className="menu">
+        <p>🎬 Movies</p>
+        <p>📺 Series</p>
       </div>
 
-      <div className="side-footer">
-        <small>Tip: Add items in Project → Add Item</small>
+      <h4>Library</h4>
+      <div className="menu">
+        <p>🕒 Recent</p>
+        <p>⬇ Downloaded</p>
       </div>
     </aside>
   );

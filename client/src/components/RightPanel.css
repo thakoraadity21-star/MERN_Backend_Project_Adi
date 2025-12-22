@@ -1,0 +1,39 @@
+.right-panel {
+  width: 280px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  background: rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+  overflow-y: auto;
+}
+
+.watch-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.watch-item img {
+  width: 55px;
+  height: 75px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.watch-item button {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.empty {
+  font-size: 13px;
+  color: #777;
+}

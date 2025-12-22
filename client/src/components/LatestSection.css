@@ -1,0 +1,19 @@
+.latest-section {
+  margin-top: 40px;
+}
+
+.latest-section h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.anime-row {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.anime-row::-webkit-scrollbar {
+  display: none;
+}

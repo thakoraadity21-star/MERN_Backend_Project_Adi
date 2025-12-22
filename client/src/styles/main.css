@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  background: #0f0f0f;
+  color: white;
+  font-family: Arial;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: black;
+}
+
+.hero {
+  height: 60vh;
+  background: url("https://wallpaperaccess.com/full/3414986.jpg") center/cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}

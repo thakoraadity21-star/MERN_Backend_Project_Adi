@@ -1,0 +1,71 @@
+.anime-card {
+  position: relative;
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 14px;
+  transition: 0.35s ease;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.anime-card:hover {
+  transform: scale(1.07);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* 🔥 GLOW WHEN IN WATCHLIST */
+.anime-card.glow {
+  box-shadow: 0 0 18px rgba(108, 92, 231, 0.9);
+  border: 1px solid #6c5ce7;
+}
+
+/* IMAGE */
+.anime-img {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.anime-img img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* RATING */
+.rating {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* TITLE */
+.anime-title {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+/* ❤️ HEART */
+.heart {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  padding: 4px 6px;
+  transition: transform 0.2s ease;
+}
+
+.heart:hover {
+  transform: scale(1.25);
+}
