@@ -50,20 +50,18 @@ const connectDB = async () => {
   try {
     if (!process.env.MONGO_URI) {
       console.error("❌ MONGO_URI missing");
-      return false;
+      process.exit(1);
     }
 
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ MongoDB connected");
-    return true;
   } catch (error) {
     console.error("❌ MongoDB error:", error.message);
-    return false;
+    process.exit(1);
   }
 };
 
-/* ================= FRONTEND BUILD ================= */
-/* ⚠️ Only in production */
+/* ================= FRONTEND BUILD (PRODUCTION) ================= */
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../../client/build")));
 
@@ -77,13 +75,12 @@ if (process.env.NODE_ENV === "production") {
 /* ================= SERVER START ================= */
 const PORT = process.env.PORT || 10000;
 
-async function startServer() {
-  const ok = await connectDB();
-  if (!ok) return;
+const startServer = async () => {
+  await connectDB();
 
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
   });
-}
+};
 
 startServer();
