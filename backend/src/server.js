@@ -25,13 +25,18 @@ app.use("/api/users", userRoutes);
 app.use("/api/resources", resourceRoutes);
 app.use("/api/demo", demoRoutes);
 
-/* ================= DB ================= */
+/* ================= DB CONNECT ================= */
 const connectDB = async () => {
-  await mongoose.connect(process.env.MONGO_URI);
-  console.log("✅ MongoDB connected");
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("✅ MongoDB connected");
+  } catch (error) {
+    console.error("❌ MongoDB connection failed:", error.message);
+    process.exit(1);
+  }
 };
 
-/* ================= FRONTEND (VERY IMPORTANT) ================= */
+/* ================= FRONTEND SERVE ================= */
 if (process.env.NODE_ENV === "production") {
   const clientPath = path.join(__dirname, "../../client/build");
 
@@ -46,7 +51,7 @@ if (process.env.NODE_ENV === "production") {
 const PORT = process.env.PORT || 10000;
 
 connectDB().then(() => {
-  app.listen(PORT, () =>
-    console.log(`🚀 Server running on port ${PORT}`)
-  );
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
 });

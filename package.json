@@ -1,0 +1,9 @@
+{
+  "name": "movie-anime-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "node backend/src/server.js"
+  }
+}
