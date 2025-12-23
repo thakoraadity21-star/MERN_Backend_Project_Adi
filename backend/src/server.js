@@ -10,34 +10,14 @@ import userRoutes from "./routes/userRoutes.js";
 import resourceRoutes from "./routes/resourceRoutes.js";
 
 dotenv.config();
-
 const app = express();
 
 /* ================= FIX __dirname ================= */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/* ================= CORS ================= */
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://mern-backend-project-adi.onrender.com",
-];
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-
 /* ================= MIDDLEWARE ================= */
+app.use(cors());
 app.use(express.json());
 
 /* ================= API ROUTES ================= */
@@ -45,42 +25,28 @@ app.use("/api/users", userRoutes);
 app.use("/api/resources", resourceRoutes);
 app.use("/api/demo", demoRoutes);
 
-/* ================= DB CONNECT ================= */
+/* ================= DB ================= */
 const connectDB = async () => {
-  try {
-    if (!process.env.MONGO_URI) {
-      console.error("❌ MONGO_URI missing");
-      process.exit(1);
-    }
-
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("✅ MongoDB connected");
-  } catch (error) {
-    console.error("❌ MongoDB error:", error.message);
-    process.exit(1);
-  }
+  await mongoose.connect(process.env.MONGO_URI);
+  console.log("✅ MongoDB connected");
 };
 
-/* ================= FRONTEND BUILD (PRODUCTION) ================= */
+/* ================= FRONTEND (VERY IMPORTANT) ================= */
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../../client/build")));
+  const clientPath = path.join(__dirname, "../../client/build");
+
+  app.use(express.static(clientPath));
 
   app.get("*", (req, res) => {
-    res.sendFile(
-      path.join(__dirname, "../../client/build/index.html")
-    );
+    res.sendFile(path.join(clientPath, "index.html"));
   });
 }
 
-/* ================= SERVER START ================= */
+/* ================= SERVER ================= */
 const PORT = process.env.PORT || 10000;
 
-const startServer = async () => {
-  await connectDB();
-
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
-  });
-};
-
-startServer();
+connectDB().then(() => {
+  app.listen(PORT, () =>
+    console.log(`🚀 Server running on port ${PORT}`)
+  );
+});
