@@ -1,29 +1,25 @@
-import { useEffect, useState } from "react";
-import { getTopAnime } from "../api/animeApi";
-import "./Hero.css";
+import "./Home.css";
 
-export default function Hero() {
-  const [anime, setAnime] = useState(null);
-
-  useEffect(() => {
-    getTopAnime().then((data) => {
-      setAnime(data[Math.floor(Math.random() * 5)]);
-    });
-  }, []);
-
-  if (!anime) return null;
-
+export default function Home() {
   return (
-    <section
-      className="hero"
-      style={{
-        backgroundImage: `url(${anime.images.jpg.large_image_url})`,
-      }}
-    >
-      <div className="hero-overlay">
-        <h1>{anime.title}</h1>
-        <p>⭐ {anime.score || "N/A"} | {anime.year || "Anime"}</p>
-        <button className="hero-btn">▶ Watch Now</button>
+    <section className="hero">
+      <div className="hero-overlay"></div>
+
+      <div className="hero-content">
+        <h1>Watch Anime Like Never Before</h1>
+        <p>
+          Unlimited anime • HD streaming • New episodes every week
+        </p>
+
+        <div className="hero-buttons">
+          <button className="btn-primary">
+            ▶ Watch Now
+          </button>
+
+          <button className="btn-secondary">
+            ＋ Add to Watchlist
+          </button>
+        </div>
       </div>
     </section>
   );

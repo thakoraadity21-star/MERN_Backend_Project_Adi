@@ -1,34 +1,36 @@
 .sidebar {
   width: 220px;
-  background: #0b0f1a;
-  height: 100vh;
+  background: #020617;
   padding: 20px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  color: #bbb;
 }
 
 .logo {
   color: #ff2e63;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
-.menu p {
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 6px;
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.menu p:hover,
-.menu .active {
-  background: #1a1f36;
+.menu a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.menu a:hover {
+  background: rgba(108, 92, 231, 0.15);
   color: white;
 }
 
-h4 {
-  margin-top: 25px;
-  margin-bottom: 10px;
-  color: #777;
-  font-size: 14px;
+.menu a.active {
+  background: #6c5ce7;
+  color: white;
 }

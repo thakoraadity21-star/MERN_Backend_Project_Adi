@@ -1,46 +1,147 @@
 .anime-detail {
   display: flex;
-  gap: 40px;
-  padding: 30px;
-  color: white;
+  gap: 60px;
+  padding: 60px;
+  color: #ffffff;
+  background: radial-gradient(circle at top, #111827, #020617 70%);
+  min-height: 100vh;
 }
 
+/* LEFT */
 .detail-left img {
-  width: 280px;
-  border-radius: 12px;
+  width: 320px;
+  border-radius: 20px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.detail-left img:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 1),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* RIGHT */
+.detail-right {
+  max-width: 760px;
 }
 
 .detail-right h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
 }
 
+/* RATING */
 .rating {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: gold;
+  margin-bottom: 18px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* GENRES */
+.genres {
+  margin-bottom: 26px;
 }
 
 .genres span {
   display: inline-block;
-  margin-right: 10px;
-  padding: 5px 12px;
-  background: #222;
-  border-radius: 20px;
-  font-size: 14px;
+  margin-right: 12px;
+  margin-bottom: 10px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
+/* SYNOPSIS */
 .synopsis {
-  margin-top: 20px;
-  line-height: 1.6;
-  opacity: 0.9;
+  margin-top: 26px;
+  line-height: 1.9;
+  font-size: 15px;
+  color: #d1d5db;
+  opacity: 0.95;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  margin-top: 34px;
+  display: flex;
+  gap: 20px;
 }
 
 .watchlist-btn {
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: crimson;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, crimson, #ff0033);
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   color: white;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 14px 35px rgba(220, 20, 60, 0.65);
+}
+
+.watchlist-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(220, 20, 60, 0.9);
+}
+
+.play-btn {
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #6c5ce7, #8b7cfb);
+  border: none;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 14px 40px rgba(108, 92, 231, 0.7);
+}
+
+.play-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 22px 60px rgba(108, 92, 231, 1);
+}
+
+/* LOADING */
+.detail-loading {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c7d2fe;
+  gap: 18px;
+  font-size: 16px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  border-top: 4px solid #6c5ce7;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

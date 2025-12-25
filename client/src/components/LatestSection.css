@@ -4,16 +4,41 @@
 
 .latest-section h2 {
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  font-size: 20px;
 }
 
+/* 🔥 HORIZONTAL SCROLL LIKE CRUNCHYROLL */
 .anime-row {
   display: flex;
   gap: 22px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 10px 40px 16px 0;
+  scroll-behavior: smooth;
+  cursor: grab;
 }
 
+.anime-row:active {
+  cursor: grabbing;
+}
+
+/* 🔥 SCROLLBAR HIDDEN */
 .anime-row::-webkit-scrollbar {
   display: none;
+}
+
+/* 🔥 FADE EFFECT (SCROLL HINT) */
+.anime-row::after {
+  content: "";
+  position: sticky;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to left,
+    rgba(10, 10, 20, 0.95),
+    transparent
+  );
 }

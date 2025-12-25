@@ -1,0 +1,65 @@
+.search-page {
+  padding: 30px;
+}
+
+.search-page h2 {
+  margin-bottom: 20px;
+}
+
+.search-page span {
+  color: #ff4d6d;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.loading,
+.empty {
+  margin-top: 40px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+.loading span {
+  color: #ff4d6d;
+}
+.anime-grid .anime-card {
+  width: 100%;
+}
+.anime-grid .anime-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+.anime-grid .anime-card .title {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+.anime-grid .anime-card .title:hover {
+  color: #ff4d6d;
+}
+.anime-grid .anime-card .rating {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ffcc00;
+  text-align: center;
+}
+.anime-grid .anime-card .rating .star {
+  margin-right: 4px;
+}
+.anime-grid .anime-card .favorite-btn {
+  margin-top: 8px;
+  background: transparent;
+  border: none;
+  color: #ff4d6d;
+  cursor: pointer;
+}
+.anime-grid .anime-card .favorite-btn:hover {
+  text-decoration: underline;
+}
+.anime-grid .anime-card .favorite-btn.favorited {
+  color: #ff1e40;
+}

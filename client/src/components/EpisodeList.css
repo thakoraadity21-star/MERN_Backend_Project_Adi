@@ -1,0 +1,72 @@
+.episode-section {
+  margin-top: 50px;
+}
+
+.episode-title {
+  font-size: 22px;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.episode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.episode-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.episode-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ep-left {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.ep-number {
+  background: #6c5ce7;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ep-name {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.ep-duration {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.ep-play {
+  background: crimson;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ep-play:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 24px rgba(220, 20, 60, 0.6);
+}

@@ -12,20 +12,38 @@ export default function RightPanel() {
       {watchlist.length === 0 ? (
         <p className="empty">No anime added</p>
       ) : (
-        watchlist.map((a) => (
-          <div key={a.mal_id} className="watch-item">
-            <Link to={`/anime/${a.mal_id}`}>
-              <img src={a.images.jpg.image_url} alt={a.title} />
-            </Link>
+        watchlist.map((a) => {
+          if (!a || !a.mal_id) return null;
 
-            <div>
-              <p>{a.title}</p>
-              <button onClick={() => removeFromWatchlist(a.mal_id)}>
-                ❌ Remove
-              </button>
+          return (
+            <div key={a.mal_id} className="watch-item">
+              <Link to={`/anime/${a.mal_id}`}>
+                <img
+                  src={
+                    a.image ||
+                    "https://via.placeholder.com/80x110?text=No+Image"
+                  }
+                  alt={a.title || "Anime"}
+                />
+              </Link>
+
+              <div className="watch-info">
+                <p className="watch-title">
+                  {a.title || "Untitled"}
+                </p>
+
+                <button
+                  className="remove-btn"
+                  onClick={() =>
+                    removeFromWatchlist(a.mal_id)
+                  }
+                >
+                  Remove
+                </button>
+              </div>
             </div>
-          </div>
-        ))
+          );
+        })
       )}
     </aside>
   );

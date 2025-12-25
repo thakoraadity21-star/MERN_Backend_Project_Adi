@@ -5,22 +5,35 @@ const WatchlistContext = createContext();
 export function WatchlistProvider({ children }) {
   const [watchlist, setWatchlist] = useState([]);
 
-  // ✅ ADD
+  // ✅ ADD (ULTRA SAFE)
   const addToWatchlist = (anime) => {
-    const exists = watchlist.find((a) => a.mal_id === anime.mal_id);
+    if (!anime || !anime.mal_id) return;
+
+    const exists = watchlist.some(
+      (a) => a?.mal_id === anime.mal_id
+    );
+
     if (!exists) {
-      setWatchlist([...watchlist, anime]);
+      setWatchlist((prev) => [...prev, anime]);
     }
   };
 
-  // ✅ REMOVE (MISSING THA – ERROR YAHI SE AAYA)
+  // ✅ REMOVE (SAFE)
   const removeFromWatchlist = (id) => {
-    setWatchlist(watchlist.filter((a) => a.mal_id !== id));
+    if (!id) return;
+
+    setWatchlist((prev) =>
+      prev.filter((a) => a?.mal_id !== id)
+    );
   };
 
-  // ✅ CHECK (for glow / highlight)
+  // ✅ CHECK (CRASH-PROOF)
   const isInWatchlist = (id) => {
-    return watchlist.some((a) => a.mal_id === id);
+    if (!id) return false;
+
+    return watchlist.some(
+      (a) => a?.mal_id === id
+    );
   };
 
   return (
