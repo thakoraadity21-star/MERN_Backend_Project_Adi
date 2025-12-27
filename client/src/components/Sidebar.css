@@ -37,3 +37,24 @@
   background: #6c5ce7;
   color: white;
 }
+.menu a.active:hover {
+  background: #5a4dcf;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .menu {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .menu a {
+    white-space: nowrap;
+  }
+}
+
