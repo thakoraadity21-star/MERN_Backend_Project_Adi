@@ -2,6 +2,10 @@
   width: 220px;
   background: #020617;
   padding: 20px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .logo {
@@ -22,7 +26,6 @@
   font-size: 14px;
   padding: 6px 10px;
   border-radius: 8px;
-  transition: all 0.25s ease;
 }
 
 .menu a:hover {

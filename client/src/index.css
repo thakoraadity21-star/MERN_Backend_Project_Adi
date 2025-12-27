@@ -13,23 +13,21 @@
   --border: #dddddd;
 }
 
-/* ===== GLOBAL APPLY ===== */
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
   transition: all 0.3s ease;
-}
-
-.anime-card,
-.sidebar,
-.navbar,
-.right-panel {
-  background: var(--card);
-  border-color: var(--border);
-}
-
-input {
-  background: var(--card);
-  color: var(--text);
-  border: 1px solid var(--border);
 }
